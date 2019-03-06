@@ -8,7 +8,6 @@ import thunk from "redux-thunk";
 import App from "./components/app";
 import reducers from "./reducers";
 
-const initialState = {};
 const middleware = [thunk];
 
 const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
@@ -16,7 +15,6 @@ ReactDOM.render(
   <Provider
     store={createStoreWithMiddleware(
       reducers,
-      initialState,
       window.__REDUX_DEVTOOLS_EXTENSION__ &&
         window.__REDUX_DEVTOOLS_EXTENSION__()
     )}
