@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import Header from "../containers/Header"
 require('../style.css')
 
 class App extends Component{
     render(){
-        return ("React-redux boiler plate")
+        return (<div><Header/></div>)
     }
 }
 
