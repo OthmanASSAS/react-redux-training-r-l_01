@@ -3,6 +3,14 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Header extends Component {
+    onClickAuthentification = () => {
+        this.props.setAuthentification(!this.props.isLoggedIn)
+    }
+
+    renderAuthentificationLabel = () => {
+       return this.props.isLoggedIn ? "Déconnexion":"Connexion"
+    }
+
   render() {
     return (
       <nav className="navbar navbar-default">
@@ -19,8 +27,8 @@ class Header extends Component {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Connexion
+              <a className="nav-link" href="#" onClick={this.onClickAuthentification}>
+              {this.renderAuthentificationLabel()}
               </a>
             </li>
           </ul>
@@ -30,7 +38,11 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => {
+    return {
+        isLoggedIn: state.authentification.isLoggedIn
+    }
+};
 
 export default connect(
   mapStateToProps,
