@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "../containers/Header";
 import Home from "./Home";
 import Ressources from "./Ressources";
+import RequireAuthentification from '../helpers/require-authentification'
 
 require("../style.css");
 
@@ -14,7 +15,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/ressources" component={Ressources} />
+          <Route exact path="/ressources" component={RequireAuthentification(Ressources)} />
         </Switch>
       </div>
     );
